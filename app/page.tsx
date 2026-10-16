@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import ServicesSection from "@/components/ServicesSection";
 import Marquee from "@/components/Marquee";
+import AudioPlayer from "@/components/AudioPlayer";
 
 const ScrollPuzzle = dynamic(() => import("@/components/ScrollPuzzle"), {
   ssr: false,
@@ -140,9 +141,6 @@ const whyUs = [
   },
 ];
 
-/* ============================================================
-   MOBILE MENU OVERLAY
-   ============================================================ */
 function MobileMenu({
   open,
   onClose,
@@ -244,9 +242,6 @@ function MobileMenu({
   );
 }
 
-/* ============================================================
-   PUSH TRANSITION
-   ============================================================ */
 function PushTransition() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -444,7 +439,6 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* FULL-SCREEN MOBILE MENU */}
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       {/* HERO */}
@@ -481,7 +475,7 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-          <Marquee text="Private, fully-supported safari adventures through Botswana, Namibia, Angola, and the UK — crafted for those who want the wild on their own terms. ✦" />
+          <Marquee text="Private, fully-supported safari adventures through Botswana — crafted for those who want the wild on their own terms. ✦" />
         </div>
       </section>
 
@@ -843,7 +837,8 @@ export default function Home() {
               <MapPin className="text-[#D97B29] mt-1" />
               <div>
                 <h4 className="font-bold">Agent</h4>
-                <p className="text-gray-400"> +267 72930594</p>
+                <p className="text-gray-400">72930594</p>
+                <p className="text-gray-400">otismat97@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
@@ -872,6 +867,9 @@ export default function Home() {
           </a>
         </p>
       </footer>
+
+      {/* FLOATING AUDIO PLAYER */}
+      <AudioPlayer />
     </main>
   );
 }
